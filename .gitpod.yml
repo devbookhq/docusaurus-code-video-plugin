@@ -1,0 +1,14 @@
+tasks:
+  - name: Setup
+    init: npm i
+
+github:
+  prebuilds:
+    branches: true
+
+image:
+  file: .gitpod.Dockerfile
+
+vscode:
+  extensions:
+    - bradlc.vscode-tailwindcss

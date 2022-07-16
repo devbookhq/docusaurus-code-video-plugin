@@ -1,0 +1,74 @@
+{
+  "name": "@devbookhq/docusaurus-plugin",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "description": "Devbook plugin for Docusaurus",
+  "types": "src/theme-devbook.d.ts",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://usedevbook.com",
+  "author": {
+    "name": "FoundryLabs, Inc.",
+    "email": "hello@usedevbook.com",
+    "url": "https://usedevbook.com"
+  },
+  "bugs": "https://github.com/devbookhq/docusaurus-plugin/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devbookhq/docusaurus-plugin"
+  },
+  "sideEffects": [
+    "lib/theme/CodeBlock/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "fix": "npx eslint **/src/**/*.{ts,tsx,js} --fix",
+    "build": "tsc --build && node scripts/copyUntypedFiles.js",
+    "watch": "run-p -c copy:watch build:watch",
+    "build:watch": "tsc --build --watch",
+    "copy:watch": "node scripts/copyUntypedFiles.js --watch"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-rc.1",
+    "@docusaurus/theme-common": "2.0.0-rc.1",
+    "@docusaurus/theme-translations": "2.0.0-rc.1",
+    "@docusaurus/utils-validation": "2.0.0-rc.1",
+    "@philpl/buble": "^0.19.7",
+    "fs-extra": "^10.1.0"
+  },
+  "devDependencies": {
+    "@docusaurus/types": "2.0.0-rc.1",
+    "@types/buble": "^0.20.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.4 || ^17.0.0 || ^18.0.0"
+  },
+  "engines": {
+    "node": ">=16.14"
+  },
+  "keywords": [
+    "devbook",
+    "analytics",
+    "documentation",
+    "feedback",
+    "code",
+    "snippets",
+    "docusaurus",
+    "docusaurus2",
+    "plugin",
+    "docs",
+    "javascript",
+    "typescript"
+  ],
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "package-lock.json"
+  ]
+}
