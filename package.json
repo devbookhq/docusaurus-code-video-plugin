@@ -26,7 +26,7 @@
     "prepublishOnly": "npm run build",
     "fix": "npx eslint **/src/**/*.{ts,tsx,js} --fix",
     "build": "tsc --build && node scripts/copyUntypedFiles.js",
-    "watch": "run-p -c copy:watch build:watch",
+    "watch": "npm run build && run-p -c copy:watch build:watch",
     "build:watch": "tsc --build --watch",
     "copy:watch": "node scripts/copyUntypedFiles.js --watch"
   },
