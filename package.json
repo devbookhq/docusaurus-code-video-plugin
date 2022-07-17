@@ -36,7 +36,8 @@
     "@docusaurus/theme-translations": "2.0.0-rc.1",
     "@docusaurus/utils-validation": "2.0.0-rc.1",
     "@philpl/buble": "^0.19.7",
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "typescript-plugin-css-modules": "^3.4.0"
   },
   "devDependencies": {
     "@docusaurus/types": "2.0.0-rc.1",
