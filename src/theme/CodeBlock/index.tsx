@@ -7,7 +7,7 @@ export default function CodeBlockWrapper(props: Props) {
   return (
     <>
       <div className="dbk">
-        DEVBOOK PLUGINmxd
+        DEVBOOK PLUGIN
       </div>
       <CodeBlock {...props} />
     </>
