@@ -6,7 +6,9 @@ import './index.css'
 export default function CodeBlockWrapper(props: Props) {
   return (
     <>
-      DEVBOOK PLUGINmxd
+      <div className="dbk">
+        DEVBOOK PLUGINmxd
+      </div>
       <CodeBlock {...props} />
     </>
   );
