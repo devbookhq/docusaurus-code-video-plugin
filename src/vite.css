@@ -1,0 +1,7 @@
+.dbk-mock-cb {
+  display: flex;
+  flex-direction: column;
+  background-color: darkslategrey;
+  color: gainsboro;
+  padding: 10px;
+}

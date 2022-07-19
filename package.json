@@ -23,6 +23,7 @@
     "access": "public"
   },
   "scripts": {
+    "dev": "vite",
     "prepublishOnly": "npm run build",
     "build": "tsc --build && node scripts/copyUntypedFiles.js",
     "watch": "npm run build && run-p -c copy:watch build:watch",
@@ -39,10 +40,14 @@
   "devDependencies": {
     "@docusaurus/types": "2.0.0-rc.1",
     "@types/buble": "^0.20.1",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.0",
     "chokidar": "^3.5.3",
     "fs-extra": "^10.1.0",
     "npm-run-all": "^4.1.5",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "vite": "^3.0.2"
   },
   "keywords": [
     "devbook",

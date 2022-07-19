@@ -1,18 +1,19 @@
 import React from 'react';
 import CodeBlock, { type Props } from '@theme-init/CodeBlock';
 
-import './index.css'
+import VideoPlayer from './VideoPlayer/index';
 
-export default function CodeBlockWrapper(props: Props) {
-  return (
-    <>
-      <div className="dbk">
-        DEVBOOK PLUGIN2
-      </div>
-      <div className="dbk">
-        {props.video}
-      </div>
-      <CodeBlock {...props} />
-    </>
-  );
+function CodeBlockWrapper(props: Props) {
+  return <div>TESTx</div>
+  // if (props.video) {
+  //   return (
+  //     <VideoPlayer url={props.video}>
+  //       <CodeBlock {...props} />
+  //     </VideoPlayer>
+  //   )
+  // } else {
+  //   return <CodeBlock {...props} />
+  // }
 }
+
+export default CodeBlockWrapper

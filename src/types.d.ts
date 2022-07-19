@@ -16,5 +16,6 @@ declare module '@theme-init/CodeBlock' {
     video?: string
   }
   const CodeBlockComp: typeof CodeBlock;
+
   export default CodeBlockComp;
 }

@@ -8,7 +8,9 @@
   "compilerOptions": {
     "noEmit": false,
     "allowJs": true,
+    "jsx": "react",
     "incremental": true,
+    "esModuleInterop": true,
     "tsBuildInfoFile": "./lib/.tsbuildinfo",
     "rootDir": "src",
     "outDir": "lib",
