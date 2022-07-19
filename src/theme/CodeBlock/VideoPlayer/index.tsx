@@ -11,7 +11,9 @@ function VideoPlayer({ url, children }: Props) {
 
   return (
     <div className="dbk-video-wrapper">
-      VIDEO
+      <div className="dbk-video-container">
+        VIDEO
+      </div>
       {children}
     </div>
   )

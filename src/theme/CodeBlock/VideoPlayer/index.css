@@ -1,3 +1,9 @@
 .dbk-video-wrapper {
- 
+  position: relative;
+}
+
+.dbk-video-container {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
