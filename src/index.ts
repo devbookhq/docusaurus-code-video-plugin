@@ -1,30 +1,17 @@
-import { readDefaultCodeTranslationMessages } from '@docusaurus/theme-translations'
-import type {
-  LoadContext,
-  Plugin,
-} from '@docusaurus/types'
+import type { Plugin } from '@docusaurus/types'
+import path from 'path'
 
-export default function themeLiveCodeblock(context: LoadContext): Plugin {
-  const {
-    i18n: { currentLocale },
-  } = context;
-
+export default function themeLiveCodeblock(): Plugin {
   return {
-    name: '@devbookhq/docusaurus-plugin',
+    name: 'devbook-plugin',
 
     getThemePath() {
-      return '../lib/theme';
-    },
-    getTypeScriptThemePath() {
-      return '../src/theme';
+      return path.resolve(__dirname, './theme');
     },
 
-    getDefaultCodeTranslationMessages() {
-      return readDefaultCodeTranslationMessages({
-        locale: currentLocale,
-        name: '@devbookhq/docusaurus-plugin',
-      });
-    },
+    // getTypeScriptThemePath() {
+    //   return path.resolve(__dirname, '../src/theme');
+    // },
 
     configureWebpack() {
       return {

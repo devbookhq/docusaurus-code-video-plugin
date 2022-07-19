@@ -13,7 +13,7 @@ declare module '@theme-init/CodeBlock' {
   import type { Props as BaseProps } from '@theme/CodeBlock';
 
   export interface Props extends BaseProps {
-    live?: boolean;
+    video?: string
   }
   const CodeBlockComp: typeof CodeBlock;
   export default CodeBlockComp;

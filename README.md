@@ -24,10 +24,16 @@ module.exports = {
 }
 ```
 
+
+### Add video to code snippet in Docusaurus MD
+    ```js video="https://..."
+    function main() {
+
+    }
+    ```
+
+
 ## TODO
 - Fix development reloading
-- Check if customizable language support (solidity) works
-- Sort deps (versions, not-needed, eslint)
+- Sort deps (versions, not-needed)
 - Sort tsconfigs
-- Sort withWrapper CodeBlock syntax and custom types
-- Finish github release workflow (secrets)
