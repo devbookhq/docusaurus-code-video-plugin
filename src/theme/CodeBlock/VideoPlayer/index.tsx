@@ -13,6 +13,7 @@ function VideoPlayer({ url, children }: Props) {
     <div className="dbk-video-wrapper">
       <div className="dbk-video-container">
         VIDEO
+        <video src={url} />
       </div>
       {children}
     </div>
