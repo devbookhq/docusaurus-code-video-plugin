@@ -14,6 +14,7 @@ declare module '@theme-init/CodeBlock' {
 
   export interface Props extends BaseProps {
     video?: string
+    playButtonText?: string
   }
   const CodeBlockComp: typeof CodeBlock;
 

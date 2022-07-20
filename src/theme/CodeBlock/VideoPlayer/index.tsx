@@ -8,20 +8,31 @@ import './index.css'
 import VideoModal from './VideoModal'
 
 const button = {
-  backgroundColor: 'gainsboro',
-  borderRadius: '9999px',
-  fontSize: '13px',
-  padding: '10px 15px',
+  marginBottom: '8px',
+  backgroundColor: '#0ac069',
+  color: 'white',
+  fontSize: '14px',
+  fontWeight: '600',
+  padding: '8px 12px',
+  borderRadius: '8px',
+  border: 'none',
+  outline: 'none',
+  cursor: 'pointer',
 }
 
 export interface Props {
   url: string
+  playButtonText?: string
   children?: ReactNode
 }
 
 let closePreviousModal: (() => void) | undefined
 
-function VideoPlayer({ url, children }: Props) {
+function VideoPlayer({
+  url,
+  playButtonText,
+  children,
+}: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
   function openModal() {
@@ -52,7 +63,7 @@ function VideoPlayer({ url, children }: Props) {
           onClick={openModal}
           style={button}
         >
-          Play
+          {playButtonText || 'Play'}
         </button>
       </div>
       {children}

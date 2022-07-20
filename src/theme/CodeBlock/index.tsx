@@ -6,7 +6,7 @@ import VideoPlayer from './VideoPlayer/index';
 function CodeBlockWrapper(props: Props) {
   if (props.video) {
     return (
-      <VideoPlayer url={props.video}>
+      <VideoPlayer url={props.video} playButtonText={props.playButtonText}>
         <CodeBlock {...props} />
       </VideoPlayer>
     )

@@ -1183,7 +1183,6 @@
   "version" "1.0.0"
   dependencies:
     "@philpl/buble" "^0.19.7"
-    "@stitches/react" "^1.2.8"
 
 "@docsearch/css@3.1.1":
   "integrity" "sha512-utLgg7E1agqQeqCJn05DWC7XXMk4tMUUnL7MZupcknRu2OzGN13qwey2qA/0NAKkVBGugiWtON0+rlU0QIPojg=="

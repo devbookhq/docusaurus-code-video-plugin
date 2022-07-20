@@ -8,9 +8,22 @@ export interface Props {
   onClose?: () => void
 }
 
+const modal = {
+  position: 'fixed',
+  right: '24px',
+  bottom: '24px',
+  width: '600px',
+  height: '300px',
+  zIndex: 100,
+  backgroundColor: 'black',
+  borderRadius: '0.5rem',
+  display: 'flex',
+  flexDirection: 'column',
+} as React.CSSProperties
+
 function VideoModal({ url, onClose }: Props) {
   return (
-    <div className="dbk-video-modal">
+    <div className="dbk-video-modal" style={modal}>
       <div className="dbk-video-modal-header">
         <div className="dbk-video-modal-close" onClick={onClose}>x</div>
       </div>
