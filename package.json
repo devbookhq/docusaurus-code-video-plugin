@@ -33,10 +33,6 @@
   "dependencies": {
     "@philpl/buble": "^0.19.7"
   },
-  "peerDependencies": {
-    "react": "^16.8.4 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.4 || ^17.0.0 || ^18.0.0"
-  },
   "devDependencies": {
     "@docusaurus/types": "2.0.0-rc.1",
     "@types/buble": "^0.20.1",

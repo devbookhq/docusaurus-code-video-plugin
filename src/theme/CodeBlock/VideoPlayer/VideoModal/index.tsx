@@ -18,7 +18,7 @@ function VideoModal({ url, onClose }: Props) {
         src={url}
         width="100%"
         height="90%"
-        style={{ borderRadius: '0.25em' }}
+        style={{ borderRadius: '0.5em' }}
         frameBorder={0}
         allowFullScreen={true}
       />

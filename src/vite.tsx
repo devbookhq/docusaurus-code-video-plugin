@@ -5,7 +5,8 @@ import VideoPlayer from './theme/CodeBlock/VideoPlayer'
 
 import './vite.css'
 
-const url = "https://www.youtube.com/embed/wIMSU8otS-g"
+//const url = 'https://www.youtube.com/embed/wIMSU8otS-g'
+const url = 'https://youtube.com/embed/9OV2vHE1prE'
 
 
 function MockCodeBlock() {

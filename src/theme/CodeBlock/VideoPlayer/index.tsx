@@ -7,6 +7,13 @@ import React, {
 import './index.css'
 import VideoModal from './VideoModal'
 
+const button = {
+  backgroundColor: 'gainsboro',
+  borderRadius: '9999px',
+  fontSize: '13px',
+  padding: '10px 15px',
+}
+
 export interface Props {
   url: string
   children?: ReactNode
@@ -41,12 +48,12 @@ function VideoPlayer({ url, children }: Props) {
   return (
     <div className="dbk-video-wrapper">
       <div className="dbk-video-container">
-        <div
-          className="dbk-video-play"
+        <button
           onClick={openModal}
+          style={button}
         >
           Play
-        </div>
+        </button>
       </div>
       {children}
       {isOpen && <VideoModal url={url} onClose={closeModal} />}
