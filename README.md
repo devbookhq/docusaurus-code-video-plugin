@@ -23,20 +23,12 @@ module.exports = {
 
 
 ### Add video to code snippet in your markdown files
-    ```js video="https://..."
+    ```js video="https://www.youtube.com/embed/..."
     function main() {
 
     }
     ```
 
-## Development
 
-1. `npm run watch` in the top directory
-2. `npm run link ../` in the `example` directory
-3. `npm run start` in the `example` directory
-4. **(TEMPORARY)** When you change the plugin code you may need to restart the docusaurus server and delete the `example/.docusaurus` cache directory.
-
-## TODO
-- Fix development reloading
-- Sort deps (versions, not-needed)
-- Sort tsconfigs
+### Supported video sources
+- YouTube (https://www.youtube.com/embed/[videoID])

@@ -5,7 +5,7 @@ import VideoPlayer from './theme/CodeBlock/VideoPlayer'
 
 import './vite.css'
 
-const url = "https://..."
+const url = "https://www.youtube.com/embed/wIMSU8otS-g"
 
 
 function MockCodeBlock() {
@@ -24,11 +24,12 @@ function MockCodeBlock() {
   )
 }
 
-
-
 function App() {
   return (
-    <div>
+    <div style={{ width: '100%', height: '100%' }}>
+      <VideoPlayer url={url}>
+        <MockCodeBlock />
+      </VideoPlayer>
       <VideoPlayer url={url}>
         <MockCodeBlock />
       </VideoPlayer>

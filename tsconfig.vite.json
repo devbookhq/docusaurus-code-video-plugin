@@ -8,7 +8,9 @@
   "compilerOptions": {
     "noEmit": false,
     "allowJs": true,
+    "jsx": "react",
     "incremental": true,
+    "esModuleInterop": true,
     "tsBuildInfoFile": "./lib/.tsbuildinfo",
     "rootDir": "src",
     "outDir": "lib",
@@ -22,9 +24,7 @@
     "src"
   ],
   "exclude": [
-    "src/theme",
-    "src/vite.tsx",
-    "src/vite.css",
-    "src/vite-env.d.ts"
+    "src/custom-buble.ts",
+    "src/theme"
   ]
 }
