@@ -1,5 +1,4 @@
-import React, {
-} from 'react'
+import React from 'react'
 
 import './index.css'
 
@@ -8,22 +7,22 @@ export interface Props {
   onClose?: () => void
 }
 
-const modal = {
-  position: 'fixed',
-  right: '24px',
-  bottom: '24px',
-  width: '600px',
-  height: '300px',
-  zIndex: 100,
-  backgroundColor: 'black',
-  borderRadius: '0.5rem',
-  display: 'flex',
-  flexDirection: 'column',
-} as React.CSSProperties
+// const modal = {
+//   position: 'fixed',
+//   right: '24px',
+//   bottom: '24px',
+//   width: '600px',
+//   height: '300px',
+//   zIndex: 100,
+//   backgroundColor: 'black',
+//   borderRadius: '0.5rem',
+//   display: 'flex',
+//   flexDirection: 'column',
+// } as React.CSSProperties
 
 function VideoModal({ url, onClose }: Props) {
   return (
-    <div className="dbk-video-modal" style={modal}>
+    <div className="dbk-video-modal">
       <div className="dbk-video-modal-header">
         <div className="dbk-video-modal-close" onClick={onClose}>x</div>
       </div>
@@ -31,7 +30,7 @@ function VideoModal({ url, onClose }: Props) {
         src={url}
         width="100%"
         height="90%"
-        style={{ borderRadius: '0.5em' }}
+        className="dbk-video-iframe"
         frameBorder={0}
         allowFullScreen={true}
       />

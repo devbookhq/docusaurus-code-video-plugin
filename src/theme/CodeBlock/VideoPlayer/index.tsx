@@ -5,6 +5,7 @@ import React, {
 } from 'react'
 
 import './index.css'
+
 import VideoModal from './VideoModal'
 
 const button = {

@@ -25,3 +25,7 @@
   margin-right: 8px;
   margin-bottom: 1px;
 }
+
+.dbk-video-iframe {
+  border-radius: 0.25em;
+}

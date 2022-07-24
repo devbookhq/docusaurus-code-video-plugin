@@ -13,15 +13,15 @@ export default function themeLiveCodeblock(): Plugin {
     //   return path.resolve(__dirname, '../src/theme');
     // },
 
-    configureWebpack() {
-      return {
-        resolve: {
-          alias: {
-            buble: require.resolve('./custom-buble.js'),
-          },
-        },
-      };
-    },
+    // configureWebpack() {
+    //   return {
+    //     resolve: {
+    //       alias: {
+    //         buble: require.resolve('./custom-buble.js'),
+    //       },
+    //     },
+    //   };
+    // },
   };
 }
 

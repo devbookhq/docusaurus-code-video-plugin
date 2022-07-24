@@ -23,7 +23,7 @@ module.exports = {
 
 
 ### Add video to code snippet in your markdown files
-    ```js video="https://www.youtube.com/embed/..."
+    ```js video=https://www.youtube.com/embed/...
     function main() {
 
     }
