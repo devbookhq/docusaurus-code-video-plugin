@@ -1,37 +1,29 @@
-.dbk-video-modal {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  width: 40%;
-  height: 40%;
-  z-index: 100;
-  flex-direction: column;
-  background-color: black;
-  border-radius: 0.25rem;
-}
-
-.dbk-video-modal-header {
-  height: 25px;
-  display: flex;
-  flex-direction: row-reverse;
-  flex: 1;
-}
-
-.dbk-video-modal-close {
-  font-family: sans-serif;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-  margin-right: 8px;
-  margin-bottom: 1px;
-}
-
 .dbk-video-wrapper {
   position: relative;
 }
 
+.dbk-video-button {
+  margin-top: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background-color: #0ac069;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.dbk-video-button:hover {
+  background-color: #14a25e;
+}
+
 .dbk-video-container {
   position: absolute;
+  z-index: 90;
   right: 0;
   top: 0;
 }

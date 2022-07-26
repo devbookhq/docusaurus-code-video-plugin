@@ -3,26 +3,15 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import PlayButton from './PlayButton'
 
-import './index.css'
+import styles from './styles.module.css'
 
 import VideoModal from './VideoModal'
 
-const button = {
-  marginBottom: '8px',
-  backgroundColor: '#0ac069',
-  color: 'white',
-  fontSize: '14px',
-  fontWeight: '600',
-  padding: '8px 12px',
-  borderRadius: '8px',
-  border: 'none',
-  outline: 'none',
-  cursor: 'pointer',
-}
-
 export interface Props {
   url: string
+  playButtonOverlay?: boolean
   playButtonText?: string
   children?: ReactNode
 }
@@ -33,6 +22,7 @@ function VideoPlayer({
   url,
   playButtonText,
   children,
+  playButtonOverlay,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -58,15 +48,21 @@ function VideoPlayer({
   }, [])
 
   return (
-    <div className="dbk-video-wrapper">
-      <div className="dbk-video-container">
-        <button
-          onClick={openModal}
-          style={button}
-        >
-          {playButtonText || 'Play'}
-        </button>
-      </div>
+    <div className={styles['dbk-video-wrapper']}>
+      {playButtonOverlay &&
+        <div className={styles['dbk-video-container']}>
+          <PlayButton
+            onOpen={openModal}
+            buttonText={playButtonText}
+          />
+        </div>
+      }
+      {!playButtonOverlay &&
+        <PlayButton
+          onOpen={openModal}
+          buttonText={playButtonText}
+        />
+      }
       {children}
       {isOpen && <VideoModal url={url} onClose={closeModal} />}
     </div>

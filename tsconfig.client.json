@@ -9,11 +9,6 @@
     "outDir": "lib",
     "module": "esnext",
     "target": "esnext",
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ]
   },
   "include": [
     "src/theme",

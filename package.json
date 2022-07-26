@@ -1,9 +1,9 @@
 {
   "name": "@devbookhq/docusaurus-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "description": "Devbook plugin for Docusaurus",
-  "types": "src/types.d.ts",
+  "types": "lib/types.d.ts",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://usedevbook.com",
   "author": {
@@ -30,12 +30,8 @@
     "build:watch": "tsc --build --watch",
     "copy:watch": "node scripts/copyUntypedFiles.js --watch"
   },
-  "dependencies": {
-    "@philpl/buble": "^0.19.7"
-  },
   "devDependencies": {
     "@docusaurus/types": "2.0.0-rc.1",
-    "@types/buble": "^0.20.1",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
@@ -64,10 +60,14 @@
   ],
   "files": [
     "lib",
-    "src",
     "README.md",
+    ".gitignore",
     "LICENSE",
     "package.json",
     "package-lock.json"
-  ]
+  ],
+  "dependencies": {
+    "react-draggable": "^4.4.5",
+    "react-youtube": "^9.0.3"
+  }
 }

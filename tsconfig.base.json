@@ -3,6 +3,7 @@
     /* Emit */
     "target": "ES2020",
     "lib": [
+      "dom",
       "ESNext"
     ],
     "declaration": true,
