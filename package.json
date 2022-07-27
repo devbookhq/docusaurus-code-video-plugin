@@ -59,7 +59,7 @@
     "typescript"
   ],
   "files": [
-    "lib",
+    "lib/**",
     "README.md",
     ".gitignore",
     "LICENSE",

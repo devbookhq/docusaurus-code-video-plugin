@@ -9,22 +9,14 @@
     "noEmit": false,
     "allowJs": true,
     "jsx": "react",
-    "incremental": true,
     "esModuleInterop": true,
-    "tsBuildInfoFile": "./lib/.tsbuildinfo",
     "rootDir": "src",
     "outDir": "lib",
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ]
   },
   "include": [
     "src"
   ],
   "exclude": [
-    "src/custom-buble.ts",
     "src/theme"
   ]
 }

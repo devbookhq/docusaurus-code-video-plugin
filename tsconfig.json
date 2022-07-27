@@ -11,12 +11,7 @@
     "incremental": true,
     "tsBuildInfoFile": "./lib/.tsbuildinfo",
     "rootDir": "src",
-    "outDir": "lib",
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ]
+    "outDir": "lib"
   },
   "include": [
     "src"

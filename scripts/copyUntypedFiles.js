@@ -12,7 +12,7 @@ const chokidar = require('chokidar')
 const srcDir = path.join(process.cwd(), 'src');
 const libDir = path.join(process.cwd(), 'lib');
 
-const ignoredPattern = /(?:__tests__|\.tsx?$)/;
+const ignoredPattern = /(?:vite|__tests__|\.tsx?$)/;
 
 async function copy() {
   await fs.copy(srcDir, libDir, {

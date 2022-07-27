@@ -13,11 +13,16 @@ declare module '@theme-init/CodeBlock' {
   import type { Props as BaseProps } from '@theme/CodeBlock';
 
   export interface Props extends BaseProps {
-    video?: string
-    playButtonText?: string
-    playButtonOverlay?: boolean
+    youtubeID?: string
+    metastring?: string
   }
   const CodeBlockComp: typeof CodeBlock;
 
   export default CodeBlockComp;
+}
+
+// declaration.d.ts
+declare module '*.css' {
+  const content: Record<string, string>;
+  export default content;
 }

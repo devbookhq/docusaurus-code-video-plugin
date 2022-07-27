@@ -1,13 +1,22 @@
-import React from 'react';
-import CodeBlock, { type Props } from '@theme-init/CodeBlock';
+import React from 'react'
+import CodeBlock, { type Props } from '@theme-init/CodeBlock'
 
-import VideoPlayer from './VideoPlayer';
+import VideoPlayer from './VideoPlayer'
+import useVideoHighlight from './useVideoHighlight'
 
 function CodeBlockWrapper(props: Props) {
-  if (props.video) {
+  const {
+    metastring,
+    handleTimeChange,
+  } = useVideoHighlight(props)
+
+  if (props.youtubeID) {
     return (
-      <VideoPlayer url={props.video} playButtonText={props.playButtonText}>
-        <CodeBlock {...props} />
+      <VideoPlayer
+        youtubeID={props.youtubeID}
+        onTimeChange={handleTimeChange}
+      >
+        <CodeBlock {...props} metastring={metastring} />
       </VideoPlayer>
     )
   } else {

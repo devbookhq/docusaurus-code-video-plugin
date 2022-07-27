@@ -1,43 +1,49 @@
 import React, {
-  IframeHTMLAttributes,
   useEffect,
-  useLayoutEffect,
   useRef,
   useState,
 } from 'react'
 import Draggable from 'react-draggable'
 import CloseIcon from './CloseIcon'
-// https://github.com/cookpete/react-player/blob/master/src/players/YouTube.js
 import YouTube, { YouTubePlayer } from 'react-youtube'
 
 import styles from './styles.module.css'
 
 export interface Props {
-  url: string
+  youtubeID: string
   onClose?: () => void
+  // `time` is in seconds since since video start.
+  // This function should be a stable reference
+  onTimeChange?: (time: number) => void
 }
 
-function VideoModal({ url, onClose }: Props) {
-  const draggableContainerRef = useRef<HTMLDivElement>(null)
-  const iframeRef = useRef<HTMLIFrameElement>(null)
+function VideoModal({
+  youtubeID,
+  onClose,
+  onTimeChange,
+}: Props) {
   const [isDragged, setIsDragged] = useState(false)
-
   const yRef = useRef<YouTube>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const draggableContainerRef = useRef<HTMLDivElement>(null)
 
+  const [player, setPlayer] = useState<YouTubePlayer>()
 
   useEffect(function checkTime() {
-    if (!isPlaying) return
+    if (!player) return
+    if (!onTimeChange) return
 
-    const player = yRef.current?.getInternalPlayer()
     const interval = setInterval(() => {
-
-    }, 800)
+      const time = player.getCurrentTime()
+      onTimeChange(time)
+    }, 400)
 
     return () => {
       clearInterval(interval)
     }
-  }, [isPlaying])
+  }, [
+    player,
+    onTimeChange,
+  ])
 
   return (
     <Draggable
@@ -46,33 +52,36 @@ function VideoModal({ url, onClose }: Props) {
       onStop={() => setIsDragged(false)}
     >
       <div
-        className={styles['dbk-video-modal']}
+        className={styles['modal']}
         ref={draggableContainerRef}
       >
-        <div className={styles['dbk-video-modal-header']}>
-          <div className={styles['dbk-video-modal-close']} onClick={onClose}>
-            <CloseIcon></CloseIcon>
+        <div className={styles['modal-header']}>
+          <div className={styles['modal-close']} onClick={onClose}>
+            <CloseIcon />
           </div>
         </div>
         <YouTube
           ref={yRef}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
           style={{ pointerEvents: isDragged ? 'none' : 'auto' }}
-          className={styles['dbk-video-iframe']}
+          iframeClassName={styles['iframe']}
+          onReady={(event) => setPlayer(event.target)}
+          videoId={youtubeID}
           opts={{
-
+            host: 'https://www.youtube-nocookie.com',
+            width: '100%',
+            height: '100%',
+            playerVars: {
+              modestbranding: 1,
+              controls: 1,
+              autoplay: 1,
+              showinfo: 0,
+              fs: 0,
+              rel: 0,
+              iv_load_policy: 3,
+              cc_load_policy: 1,
+            },
           }}
         />
-        {/* <iframe
-          style={{ pointerEvents: isDragged ? 'none' : 'auto' }}
-          ref={iframeRef}
-          src={url + '?autoplay=1'}
-          allow="autoplay;"
-          className={styles['dbk-video-iframe']}
-          frameBorder={0}
-          allowFullScreen={true}
-        /> */}
       </div>
     </Draggable>
   )

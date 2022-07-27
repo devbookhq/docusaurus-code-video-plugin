@@ -3,26 +3,24 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import PlayButton from './PlayButton'
 
 import styles from './styles.module.css'
 
+import PlayButton from './PlayButton'
 import VideoModal from './VideoModal'
 
 export interface Props {
-  url: string
-  playButtonOverlay?: boolean
-  playButtonText?: string
+  youtubeID: string
+  onTimeChange?: (time: number) => void
   children?: ReactNode
 }
 
 let closePreviousModal: (() => void) | undefined
 
 function VideoPlayer({
-  url,
-  playButtonText,
+  youtubeID,
   children,
-  playButtonOverlay,
+  onTimeChange,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -48,23 +46,23 @@ function VideoPlayer({
   }, [])
 
   return (
-    <div className={styles['dbk-video-wrapper']}>
-      {playButtonOverlay &&
-        <div className={styles['dbk-video-container']}>
-          <PlayButton
-            onOpen={openModal}
-            buttonText={playButtonText}
-          />
-        </div>
-      }
-      {!playButtonOverlay &&
+    <div className={styles['video-wrapper']}>
+      <div className={styles['video-container']}>
         <PlayButton
+          youtubeID={youtubeID}
           onOpen={openModal}
-          buttonText={playButtonText}
+          onClose={closeModal}
+          isPlaying={isOpen}
+        />
+      </div>
+      {children}
+      {isOpen &&
+        <VideoModal
+          onTimeChange={onTimeChange}
+          youtubeID={youtubeID}
+          onClose={closeModal}
         />
       }
-      {children}
-      {isOpen && <VideoModal url={url} onClose={closeModal} />}
     </div>
   )
 }

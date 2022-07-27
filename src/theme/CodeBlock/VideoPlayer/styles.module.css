@@ -1,59 +1,53 @@
-.dbk-video-wrapper {
+.video-wrapper {
   position: relative;
 }
 
-.dbk-video-button {
-  margin-top: 8px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  background-color: #0ac069;
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.dbk-video-button:hover {
-  background-color: #14a25e;
-}
-
-.dbk-video-container {
+.video-container {
   position: absolute;
-  z-index: 90;
-  right: 0;
-  top: 0;
+  z-index: 1;
+  /* padding-left: 200px; */
+  right: 0px;
 }
 
-.dbk-video-play {
-  padding: 8px 12px;
-  /* width: 32px;
-  height: 32px; */
+.play-wrapper {
+  position: relative;
+  cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
 
-  font-family: sans-serif;
-  top: 20px;
-  right: 20px;
-  outline: none;
-  border: 1px solid #0ac069;
-  /* border: none; */
-  /* border-radius: 100%; */
-  border-radius: 8px;
-  background: none;
-  /* color: white; */
-  /* color: #0ac069; */
-  color: white;
-  box-shadow: 0px 0px 6px 2px rgba(10, 192, 105, 0.3);
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
-.dbk-video-play:hover {
+.play-wrapper-normal {
+  color: #0ac069;
   border: 1px solid #0ac069;
-  cursor: pointer;
-  background: #0ac069;
+}
+
+.play-wrapper-selected,
+.play-wrapper:hover {
+  border: 1px solid #11df7b;
+  color: #11df7b;
+}
+
+.play-thumbnail {
+  filter: blur(1px);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  height: 100%;
+  filter: brightness(0.8)
+}
+
+.play {
+  z-index: 90;
+  position: absolute;
 }
