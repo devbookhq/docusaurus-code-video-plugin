@@ -1,7 +1,6 @@
 import {
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from 'react'
 
@@ -26,10 +25,12 @@ function loadPosition(): Position | undefined {
 let cachedPosition: Position | undefined
 
 function usePosition() {
-  const [position, setPosition] = useState<Position | undefined>(cachedPosition || { x: 0, y: 0 })
+  const [position, setPosition] = useState<Position>(cachedPosition || { x: 0, y: 0 })
 
   useEffect(function loadDefaultPosition() {
     const defaultPosition = loadPosition()
+    if (!defaultPosition) return
+
     setPosition(defaultPosition)
     cachedPosition = defaultPosition
   }, [])
