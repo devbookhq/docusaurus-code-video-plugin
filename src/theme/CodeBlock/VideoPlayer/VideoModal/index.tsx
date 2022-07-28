@@ -1,13 +1,19 @@
 import React, {
+  useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react'
-import Draggable from 'react-draggable'
+import Draggable, {
+  DraggableEventHandler,
+} from 'react-draggable'
 import CloseIcon from './CloseIcon'
-import YouTube, { YouTubePlayer } from 'react-youtube'
+import YouTube, {
+  YouTubePlayer,
+} from 'react-youtube'
 
 import styles from './styles.module.css'
+import usePosition from './usePosition'
 
 export interface Props {
   youtubeID: string
@@ -23,10 +29,15 @@ function VideoModal({
   onTimeChange,
 }: Props) {
   const [isDragged, setIsDragged] = useState(false)
+  const [player, setPlayer] = useState<YouTubePlayer>()
+
   const yRef = useRef<YouTube>(null)
   const draggableContainerRef = useRef<HTMLDivElement>(null)
 
-  const [player, setPlayer] = useState<YouTubePlayer>()
+  const {
+    changePosition,
+    position,
+  } = usePosition()
 
   useEffect(function checkTime() {
     if (!player) return
@@ -45,45 +56,59 @@ function VideoModal({
     onTimeChange,
   ])
 
+  const stopDragging = useCallback<DraggableEventHandler>((_, data) => {
+    setIsDragged(false)
+
+    changePosition({
+      x: data.x,
+      y: data.y,
+    })
+  }, [])
+
   return (
-    <Draggable
-      nodeRef={draggableContainerRef}
-      onStart={() => setIsDragged(true)}
-      onStop={() => setIsDragged(false)}
-    >
-      <div
-        className={styles['modal']}
-        ref={draggableContainerRef}
-      >
-        <div className={styles['modal-header']}>
-          <div className={styles['modal-close']} onClick={onClose}>
-            <CloseIcon />
+    <>
+      {position &&
+        <Draggable
+          nodeRef={draggableContainerRef}
+          onStart={() => setIsDragged(true)}
+          onStop={stopDragging}
+          position={position}
+        >
+          <div
+            className={styles['modal']}
+            ref={draggableContainerRef}
+          >
+            <div className={styles['modal-header']}>
+              <div className={styles['modal-close']} onClick={onClose}>
+                <CloseIcon />
+              </div>
+            </div>
+            <YouTube
+              ref={yRef}
+              style={{ pointerEvents: isDragged ? 'none' : 'auto' }}
+              iframeClassName={styles['iframe']}
+              onReady={(event) => setPlayer(event.target)}
+              videoId={youtubeID}
+              opts={{
+                host: 'https://www.youtube-nocookie.com',
+                width: '100%',
+                height: '100%',
+                playerVars: {
+                  modestbranding: 1,
+                  controls: 1,
+                  autoplay: 1,
+                  showinfo: 0,
+                  fs: 0,
+                  rel: 0,
+                  iv_load_policy: 3,
+                  cc_load_policy: 1,
+                },
+              }}
+            />
           </div>
-        </div>
-        <YouTube
-          ref={yRef}
-          style={{ pointerEvents: isDragged ? 'none' : 'auto' }}
-          iframeClassName={styles['iframe']}
-          onReady={(event) => setPlayer(event.target)}
-          videoId={youtubeID}
-          opts={{
-            host: 'https://www.youtube-nocookie.com',
-            width: '100%',
-            height: '100%',
-            playerVars: {
-              modestbranding: 1,
-              controls: 1,
-              autoplay: 1,
-              showinfo: 0,
-              fs: 0,
-              rel: 0,
-              iv_load_policy: 3,
-              cc_load_policy: 1,
-            },
-          }}
-        />
-      </div>
-    </Draggable>
+        </Draggable>
+      }
+    </>
   )
 }
 
