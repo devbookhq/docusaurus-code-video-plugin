@@ -22,8 +22,8 @@ In **Markdown** add `youtubeID` attribute to the code block:
 
     ```js youtubeID=4HGNqFdaD34
     function main() {
-
-
+      console.log(1);
+      console.log(2);
     }
     ```
 
@@ -53,8 +53,8 @@ Add the highlight attributes to the code block in **Markdown**:
 
     ```js youtubeID=4HGNqFdaD34 0:10-1:00=(1) 1:10-1:20=(1,2-4)
     function main() {
-
-
+      console.log(1);
+      console.log(2);
     }
     ```
 
