@@ -1,8 +1,8 @@
 {
-  "name": "@devbookhq/docusaurus-plugin",
+  "name": "@devbookhq/docusaurus-video-plugin",
   "version": "1.1.0",
   "main": "lib/index.js",
-  "description": "Devbook plugin for Docusaurus",
+  "description": "Video plugin for Docusaurus",
   "types": "lib/types.d.ts",
   "license": "SEE LICENSE IN LICENSE",
   "homepage": "https://usedevbook.com",
@@ -11,10 +11,10 @@
     "email": "hello@usedevbook.com",
     "url": "https://usedevbook.com"
   },
-  "bugs": "https://github.com/devbookhq/docusaurus-plugin/issues",
+  "bugs": "https://github.com/devbookhq/docusaurus-video-plugin/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/devbookhq/docusaurus-plugin"
+    "url": "https://github.com/devbookhq/docusaurus-video-plugin"
   },
   "sideEffects": [
     "lib/theme/CodeBlock/*"

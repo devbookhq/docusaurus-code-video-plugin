@@ -3,4 +3,4 @@ node_modules/
 lib/.tsbuildinfo-client
 lib/.tsbuildinfo
 package
-devbookhq-docusaurus-plugin-*
+devbookhq-docusaurus-video-plugin-*

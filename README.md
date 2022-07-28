@@ -1,4 +1,4 @@
-# Devbook Docusaurus Plugin
+# Devbook Docusaurus Video Plugin
 The Devbook Docusaurus plugin allows you to attach videos to code blocks in your [Docusaurus](https://docusaurus.io/) docs.
 
 ## Demo
@@ -7,28 +7,26 @@ Check the [demo](TODO) here.
 ## Installation
 Install plugin:
 ```sh
-npm install @devbookhq/docusaurus-plugin
+npm install @devbookhq/docusaurus-video-plugin
 ```
 
 Add plugin to `docusaurus.config.js`:
 
 ```js
 module.exports = {
-  plugins: ['@devbookhq/docusaurus-plugin'],
+  plugins: ['@devbookhq/docusaurus-video-plugin'],
 }
 ```
 
-## Code snippets' videos
-
-### Add video to code snippet from Markdown
+## Add video to code snippet from Markdown
     ```js youtubeID=4HGNqFdaD34
     function main() {
 
     }
     ```
 
-### Add code highlights at set timestamps
-    ```js youtubeID=4HGNqFdaD34 1:10-1:20=(1,2-3)
+## Add code highlights at set timestamps
+    ```js youtubeID=4HGNqFdaD34 0:10-1:00=(1) 1:10-1:20=(1,2-3)
     function main() {
 
     }
@@ -40,7 +38,7 @@ The highlight attribute is in the format `start-end=(range). The start and end t
 
 > You can change the video line highlight style by customizing the `docusaurus-highlight-code-line` class - the same way you would change the default Docusaurus highlight style.
 
-### Supported video sources
+## Supported video sources
 - YouTube
   - `https://www.youtube.com/embed/[youtubeID]`
   - `https://www.youtube.com/watch?v=[youtubeID]`

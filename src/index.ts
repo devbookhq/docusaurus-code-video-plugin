@@ -3,7 +3,7 @@ import path from 'path'
 
 export default function themeLiveCodeblock(): Plugin {
   return {
-    name: 'devbook-plugin',
+    name: 'devbook-video-plugin',
 
     getThemePath() {
       return path.resolve(__dirname, './theme');
