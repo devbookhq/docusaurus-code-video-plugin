@@ -13,6 +13,8 @@ export interface Props {
   youtubeID: string
   onTimeChange?: (time: number) => void
   children?: ReactNode
+  onOpen?: () => void
+  onClose?: () => void
 }
 
 let closePreviousModal: (() => void) | undefined
@@ -21,6 +23,8 @@ function VideoPlayer({
   youtubeID,
   children,
   onTimeChange,
+  onOpen,
+  onClose,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -28,15 +32,17 @@ function VideoPlayer({
     closePreviousModal?.()
 
     closePreviousModal = () => {
-      setIsOpen(false)
+      closeModal()
       closePreviousModal = undefined
     }
 
     setIsOpen(true)
+    onOpen?.()
   }
 
   function closeModal() {
     setIsOpen(false)
+    onClose?.()
   }
 
   useEffect(function cleanup() {

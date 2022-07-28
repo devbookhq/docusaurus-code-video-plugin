@@ -71,6 +71,7 @@ interface HighlightInterval {
   start: number
   end: number
   highlightString: string
+  hasHighlight?: boolean
 }
 
 function useVideoHighlight(props: Props) {
@@ -95,9 +96,11 @@ function useVideoHighlight(props: Props) {
   return useMemo(() => ({
     metastring,
     handleTimeChange: timeMap ? handleTimeChange : undefined,
+    hasHighlight: !!timeMap
   }), [
     metastring,
     handleTimeChange,
+    timeMap,
   ])
 }
 
