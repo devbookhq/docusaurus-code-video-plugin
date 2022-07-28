@@ -32,7 +32,7 @@ import MyComponentSource from '!!raw-loader!./myComponent';
 <CodeBlock youtubeID="4HGNqFdaD34" language="jsx">{MyComponentSource}</CodeBlock>
 ```
 
-> You need to pass just the YouTube video ID, not the whole URL. You can get the ID from the normal video URL - `https://www.youtube.com/watch?v=`**`[youtubeID]`**, or from the embed URL - `https://www.youtube.com/embed/`**`[youtubeID]`**.
+> You need to pass just the YouTube video ID, not the whole URL. You can get the `youtubeID` from the normal video URL - `https://www.youtube.com/watch?v=[youtubeID]`, or from the embed URL - `https://www.youtube.com/embed/[youtubeID]`.
 
 ### Add code highlights at video timestamps
 The video highlights are in the format `start-end=(range)`.
