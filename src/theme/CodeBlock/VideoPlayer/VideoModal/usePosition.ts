@@ -25,11 +25,10 @@ function loadPosition(): Position | undefined {
 let cachedPosition: Position | undefined
 
 function usePosition() {
-  const [position, setPosition] = useState<Position>(cachedPosition || { x: 0, y: 0 })
+  const [position, setPosition] = useState<Position | undefined>(cachedPosition)
 
   useEffect(function loadDefaultPosition() {
-    const defaultPosition = loadPosition()
-    if (!defaultPosition) return
+    const defaultPosition = loadPosition() || { x: 0, y: 0 }
 
     setPosition(defaultPosition)
     cachedPosition = defaultPosition
