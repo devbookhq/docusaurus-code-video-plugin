@@ -47,7 +47,7 @@
   -ms-user-select: none;
 
   height: 100%;
-  filter: brightness(0.8) blur(3px);
+  filter: brightness(0.9) blur(2px);
 }
 
 .play {
