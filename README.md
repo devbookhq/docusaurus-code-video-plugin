@@ -33,7 +33,12 @@ If you are using **MDX/JSX/TSX** [`CodeBlock`](https://docusaurus.io/docs/markdo
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource from '!!raw-loader!./myComponent';
 
-<CodeBlock youtubeID="4HGNqFdaD34" language="jsx">{MyComponentSource}</CodeBlock>
+<CodeBlock 
+  youtubeID="4HGNqFdaD34" 
+  language="jsx"
+>
+  {MyComponentSource}
+</CodeBlock>
 ```
 
 > You need to pass just the YouTube video ID, not the whole URL. You can get the `youtubeID` from the regular Youtube video URL - `https://www.youtube.com/watch?v=[youtubeID]`, or from the embed URL - `https://www.youtube.com/embed/[youtubeID]`.
@@ -59,7 +64,14 @@ If you are using **MDX/JSX/TSX** [`CodeBlock`](https://docusaurus.io/docs/markdo
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource from '!!raw-loader!./myComponent';
 
-<CodeBlock youtubeID="4HGNqFdaD34" "0:10-1:00"="(1)" "1:10-1:20"="(1,2-4)" language="jsx">{MyComponentSource}</CodeBlock>
+<CodeBlock 
+  youtubeID="4HGNqFdaD34" 
+  "0:10-1:00"="(1)" 
+  "1:10-1:20"="(1,2-4)" 
+  language="jsx"
+>
+  {MyComponentSource}
+</CodeBlock>
 ```
 
 > The highlight range format is the same as in the [Docusaurus code blocks]( https://docusaurus.io/docs/markdown-features/code-blocks#highlighting-with-metadata-string), just with the `()` parentheses instead of the `{}` parentheses.
