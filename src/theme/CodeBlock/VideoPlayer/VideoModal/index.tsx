@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useEffect,
   useRef,
+  useLayoutEffect,
   useState,
 } from 'react'
 import Draggable, {
@@ -54,6 +55,26 @@ function VideoModal({
   }, [
     player,
     onTimeChange,
+  ])
+
+  useLayoutEffect(() => {
+    if (!draggableContainerRef.current) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry) return
+      if (!entry.isIntersecting) {
+        changePosition({ x: 0, y: 0 })
+      }
+    })
+
+    observer.observe(draggableContainerRef.current)
+    return () => {
+      observer.disconnect()
+    }
+  }, [
+    position,
+    changePosition,
+    draggableContainerRef,
   ])
 
   const stopDragging = useCallback<DraggableEventHandler>((_, data) => {
