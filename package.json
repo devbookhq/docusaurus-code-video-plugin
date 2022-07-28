@@ -44,9 +44,7 @@
   },
   "keywords": [
     "devbook",
-    "analytics",
     "documentation",
-    "feedback",
     "code",
     "snippets",
     "docusaurus",
@@ -56,10 +54,13 @@
     "tutorial",
     "docs",
     "javascript",
-    "typescript"
+    "typescript",
+    "markdown",
+    "youtube"
   ],
   "files": [
     "lib/**",
+    "src/**",
     "README.md",
     ".gitignore",
     "LICENSE",

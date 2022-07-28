@@ -15,6 +15,7 @@ declare module '@theme-init/CodeBlock' {
   export interface Props extends BaseProps {
     youtubeID?: string
     metastring?: string
+    [range: string]: string
   }
   const CodeBlockComp: typeof CodeBlock;
 

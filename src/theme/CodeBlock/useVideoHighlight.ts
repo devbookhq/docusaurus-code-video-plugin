@@ -88,11 +88,9 @@ function useVideoHighlight(props: Props) {
     setHighlightString(highlight)
   }, [timeMap])
 
-
   const metastring = highlightString
     ? `${highlightString} ${props.metastring}`
     : props.metastring
-
 
   return useMemo(() => ({
     metastring,
