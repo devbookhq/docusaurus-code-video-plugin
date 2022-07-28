@@ -4,4 +4,9 @@
   background-color: darkslategrey;
   color: gainsboro;
   padding: 10px;
+  font-family: monospace;
+  border-radius: 0.5em;
+  margin: 10px;
+  margin-top: 20px;
+  z-index: 90;
 }

@@ -4,32 +4,37 @@
 
 .video-container {
   position: absolute;
+
+  display: flex;
+  padding-top: 5px;
   z-index: 1;
-  right: 0px;
+  right: -48px;
 }
 
 .play-wrapper {
   position: relative;
   cursor: pointer;
 
+  margin: auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   border-radius: 50%;
 }
 
 .play-wrapper-normal {
   color: #0ac069;
-  border: 1px solid #0ac069;
+  border: 2px solid #0ac069;
 }
 
 .play-wrapper-selected,
 .play-wrapper:hover {
-  border: 1px solid #11df7b;
+  border: 2px solid #11df7b;
   color: #11df7b;
 }
 
@@ -46,6 +51,13 @@
 }
 
 .play {
-  z-index: 90;
+  padding-left: 4px;
+  z-index: 50;
   position: absolute;
+}
+
+@media (max-width: 996px) {
+  .video-container {
+    display: none;
+  }
 }

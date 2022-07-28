@@ -8,5 +8,10 @@ export default function themeLiveCodeblock(): Plugin {
     getThemePath() {
       return path.resolve(__dirname, './theme');
     },
+
+    getTypeScriptThemePath() {
+      return path.resolve(__dirname, '..', 'src', './theme');
+    },
   };
 }
+
