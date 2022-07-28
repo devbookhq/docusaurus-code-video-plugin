@@ -1,5 +1,5 @@
-# Devbook Docusaurus Video Plugin
-The Devbook Docusaurus Video Plugin allows you to [add a video to a code block](#add-video-to-a-code-snippet) in your docs and [highlight code lines](#highlight-code-lines-as-the-video-plays) as the video plays.
+# Devbook Docusaurus Code Video Plugin
+The Devbook Docusaurus code video plugin allows you to [add a video to a code block](#add-video-to-a-code-snippet) in your docs and [highlight code lines](#highlight-code-lines-as-the-video-plays) as the video plays.
 
 ## Supported video sources
 - YouTube
@@ -7,13 +7,13 @@ The Devbook Docusaurus Video Plugin allows you to [add a video to a code block](
 ## Usage
 Install plugin:
 ```sh
-npm install @devbookhq/docusaurus-video-plugin
+npm install @devbookhq/docusaurus-code-video-plugin
 ```
 
 Add plugin to `docusaurus.config.js`:
 ```js
 module.exports = {
-  plugins: ['@devbookhq/docusaurus-video-plugin'],
+  plugins: ['@devbookhq/docusaurus-code-video-plugin'],
 }
 ```
 
