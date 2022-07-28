@@ -76,5 +76,6 @@ import MyComponentSource from '!!raw-loader!./myComponent';
 
 > The highlight range format is the same as in the [Docusaurus code blocks]( https://docusaurus.io/docs/markdown-features/code-blocks#highlighting-with-metadata-string), just with the `()` parentheses instead of the `{}` parentheses.
 
-#### How to style highlighted code lines
+## Styling
+### Style highlighted code lines
 You can change the code lines' highlight style by customizing the `docusaurus-highlight-code-line` class - the same way you would change the [default Docusaurus highlight style](https://docusaurus.io/docs/markdown-features/code-blocks#line-highlighting).
