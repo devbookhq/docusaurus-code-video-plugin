@@ -47,6 +47,8 @@ import MyComponentSource from '!!raw-loader!./myComponent';
 The code line highlights are in the format `videoStartTime-videoEndTime=(codeLinesRange)`.
 The start and the end timestamps are in the `H:M:S` format. Hours are optional (`M:S`).
 
+> The highlight range format is the same as in the [Docusaurus code blocks]( https://docusaurus.io/docs/markdown-features/code-blocks#highlighting-with-metadata-string), just with the `()` parentheses instead of the `{}` parentheses.
+
 Add the highlight attributes to the code block in **Markdown**:
 
     ```js youtubeID=4HGNqFdaD34 0:10-1:00=(1) 1:10-1:20=(1,2-4)
@@ -65,16 +67,13 @@ import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource from '!!raw-loader!./myComponent';
 
 <CodeBlock 
-  youtubeID="4HGNqFdaD34" 
-  "0:10-1:00"="(1)" 
-  "1:10-1:20"="(1,2-4)" 
   language="jsx"
+  youtubeID="4HGNqFdaD34" 
+  {...{ ["0:10-1:00"]: "(1)", ["1:10-1:20"]: "(1,2-4)" }} 
 >
   {MyComponentSource}
 </CodeBlock>
 ```
-
-> The highlight range format is the same as in the [Docusaurus code blocks]( https://docusaurus.io/docs/markdown-features/code-blocks#highlighting-with-metadata-string), just with the `()` parentheses instead of the `{}` parentheses.
 
 ## Styling
 ### Style highlighted code lines
