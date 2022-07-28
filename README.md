@@ -1,7 +1,5 @@
 # Devbook Docusaurus Video Plugin
-The Devbook Docusaurus video plugin allows you to [attach a video to a code block](#add-video-to-a-code-snippet) in your [Docusaurus](https://docusaurus.io/) docs.
-
-In this code block you can then easily [highlight specific lines of code](#add-code-highlights-at-video-timestamps) when the relevant parts of the video are playing.
+The Devbook Docusaurus Video Plugin allows you to attach videos to code blocks in your docs and highlight code lines as the video plays.
 
 ## Usage
 Install plugin:
