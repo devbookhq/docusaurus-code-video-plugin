@@ -10,3 +10,8 @@
   margin-top: 20px;
   z-index: 90;
 }
+
+:root {
+  --ifm-color-primary: yellow;
+  --ifm-color-primary-dark: orange;
+}

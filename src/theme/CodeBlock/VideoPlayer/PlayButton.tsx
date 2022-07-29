@@ -20,7 +20,7 @@ function PlayButton({
 }: Props) {
   return (
     <div
-      className={isPlaying ? `${styles['play-wrapper-selected']} ${styles['play-wrapper']}` : `${styles['play-wrapper-normal']} ${styles['play-wrapper']}`}
+      className={styles['play-wrapper']}
       onClick={isPlaying ? onClose : onOpen}
     >
       <img
@@ -29,7 +29,7 @@ function PlayButton({
         className={styles['play-thumbnail']}
       >
       </img>
-      {isPlaying ? <CloseIconBig className={styles['play']} /> : <PlayIcon className={styles['play']} />}
+      {isPlaying ? <CloseIconBig className={styles['close']} /> : <PlayIcon className={styles['play']} />}
     </div>
   )
 }

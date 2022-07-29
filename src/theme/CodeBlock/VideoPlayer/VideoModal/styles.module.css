@@ -14,24 +14,21 @@
 }
 
 .modal-header {
-  height: 30px;
+  padding: 5px 5px 4px 0px;
   display: flex;
+  flex: 1;
   flex-direction: row-reverse;
+  align-items: center;
 }
 
 .modal-close {
-  font-family: sans-serif;
-  font-size: 20px;
-  margin-top: auto;
-  display: flex;
-  margin-bottom: auto;
   color: gray;
-  cursor: pointer;
-  margin-right: 8px;
+  display: flex;
 }
 
 .modal-close:hover {
   color: white;
+  cursor: pointer;
 }
 
 .iframe {
