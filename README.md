@@ -76,8 +76,7 @@ import MyComponentSource from '!!raw-loader!./myComponent';
 <CodeBlock 
   language="jsx"
   youtubeID="4HGNqFdaD34" 
-  "0:10-1:00"="(1)"
-  "1:10-1:20"="(1,2-4)"
+  {...{ ["0:10-1:00"]: "(1)", ["1:10-1:20"]: "(1,2-4)" }}  
 >
   {MyComponentSource}
 </CodeBlock>
