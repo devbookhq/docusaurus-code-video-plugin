@@ -4,6 +4,8 @@ The Devbook Docusaurus code video plugin allows you to [add a video to a code bl
 ## Supported video sources
 - YouTube
 
+Do you want more video sources? Please open an issue!
+
 ## Installation
 
 Install the package:
