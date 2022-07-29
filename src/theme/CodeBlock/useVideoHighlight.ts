@@ -1,9 +1,12 @@
-import {
+import React, {
+  ReactNode,
   useCallback,
   useMemo,
+  isValidElement,
   useState,
 } from 'react'
 import { type Props } from '@theme-init/CodeBlock'
+import rangeParser from 'parse-numeric-range'
 
 function convertHMSToSeconds(hms: string): number {
   const [s, m, h] = hms.split(':').reverse()
@@ -74,12 +77,87 @@ interface HighlightInterval {
   hasHighlight?: boolean
 }
 
+const magicComments = [
+  'highlight-next-line',
+  'highlight-start',
+  'highlight-end',
+]
+
+function checkForSubstrings(str: string, sub: string[]) {
+  return sub.some(s => str.indexOf(s) >= 0)
+}
+
+function clearCodeChildren(children: ReactNode): { children: ReactNode, removedLineNumbers: number[] } {
+  if (React.Children.toArray(children).some((el) => isValidElement(el))) {
+    return {
+      children,
+      removedLineNumbers: [],
+    }
+  }
+
+  // The children is now guaranteed to be one/more plain strings
+  const code = Array.isArray(children) ? children.join('') : (children as string)
+
+  const lines = code.split(/\r?\n/)
+
+  const magicCommentLines = lines
+    .map(l => checkForSubstrings(l, magicComments))
+    .map((v, i) => v ? i : undefined)
+    .filter(notEmpty)
+
+  const replacedCode = lines
+    .filter((_, i) => !magicCommentLines.includes(i))
+    .join('\n')
+
+  return {
+    children: replacedCode,
+    removedLineNumbers: magicCommentLines,
+  }
+}
+
+function removeLinesFromTimeMap(lines: number[], timeMap: HighlightInterval[]): HighlightInterval[] {
+  return timeMap
+    .map(i => ({
+      ...i,
+      highlightString: `{${rangeParser(i.highlightString)
+        .map(codeLine => {
+          const shift = lines.filter(l => l < codeLine).length
+          return codeLine - shift
+        })
+        .filter(c => c > 0)
+        .join(',')
+        }}`,
+    }))
+}
+
 function useVideoHighlight(props: Props) {
   const [highlightString, setHighlightString] = useState<string>()
+  const [children, setChildren] = useState<ReactNode>(props.children)
 
   const timeMap = useMemo<HighlightInterval[] | undefined>(() => {
     const newTimeMap = getTimeMap(props)
-    return newTimeMap.length > 0 ? newTimeMap : undefined
+
+    if (newTimeMap.length === 0) return undefined
+
+
+
+    const {
+      children: newChildren,
+      removedLineNumbers,
+    } = clearCodeChildren(props.children)
+
+    console.log('removed', removedLineNumbers)
+
+    const timeMapWithoutMagicComments = removeLinesFromTimeMap(removedLineNumbers, newTimeMap)
+
+    console.log('maps', newTimeMap, timeMapWithoutMagicComments)
+
+    // if (timeMapWithoutMagicComments.length === 0) return undefined
+
+    setChildren(newChildren)
+    // return timeMapWithoutMagicComments
+
+    return newTimeMap
   }, [props])
 
   const handleTimeChange = useCallback((time: number) => {
@@ -96,11 +174,12 @@ function useVideoHighlight(props: Props) {
   return useMemo(() => ({
     metastring,
     handleTimeChange: timeMap ? handleTimeChange : undefined,
-    hasHighlight: !!timeMap
+    children,
   }), [
     metastring,
     handleTimeChange,
     timeMap,
+    children,
   ])
 }
 
