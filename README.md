@@ -1,6 +1,9 @@
 # Devbook Docusaurus Code Video Plugin
 The Devbook Docusaurus code video plugin allows you to [add a video to a code block](#add-video-to-a-code-snippet) in your docs and [highlight code lines](#highlight-code-lines-as-the-video-plays) as the video plays.
 
+
+![](./preview.gif)
+
 ## Supported video sources
 - YouTube
 
@@ -27,7 +30,7 @@ module.exports = {
 ## Usage with markdown (`.md`)
 Add `youtubeID` attribute to a code block:
 
-    ```js youtubeID=4HGNqFdaD34
+    ```js youtubeID=MnrJzXM7a6o
     function main() {
       console.log(1);
       console.log(2);
@@ -43,8 +46,8 @@ Add the `youtubeID` prop to the component:
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource from '!!raw-loader!./myComponent';
 
-<CodeBlock 
-  youtubeID="4HGNqFdaD34" 
+<CodeBlock
+  youtubeID="MnrJzXM7a6o"
   language="jsx"
 >
   {MyComponentSource}
@@ -60,23 +63,23 @@ The plugin allows you to highlight different code lines (and ranges of code line
 
 Add the highlight attributes to the code block in **Markdown**:
 
-    ```js youtubeID=4HGNqFdaD34 0:10-1:00=(1) 1:10-1:20=(1,2-4)
+    ```js youtubeID=MnrJzXM7a6o 0:10-1:00=(1) 1:10-1:20=(1,2-4)
     function main() {
       console.log(1);
       console.log(2);
     }
     ```
-    
+
 Or if you are using the [`CodeBlock`](https://docusaurus.io/docs/markdown-features/code-blocks) component add the highlight attributes as props:
 
 ```jsx
 import CodeBlock from '@theme/CodeBlock';
 import MyComponentSource from '!!raw-loader!./myComponent';
 
-<CodeBlock 
+<CodeBlock
   language="jsx"
-  youtubeID="4HGNqFdaD34" 
-  {...{ ["0:10-1:00"]: "(1)", ["1:10-1:20"]: "(1,2-4)" }}  
+  youtubeID="MnrJzXM7a6o"
+  {...{ ["0:10-1:00"]: "(1)", ["1:10-1:20"]: "(1,2-4)" }}
 >
   {MyComponentSource}
 </CodeBlock>
@@ -84,7 +87,7 @@ import MyComponentSource from '!!raw-loader!./myComponent';
 
 Both examples above will highlight a code line number `1` from the time `0:10` until `1:00`. Then highlights code lines `1`, `2`, `3`, and `4` from the time `1:10` to the time `1:20`.
 
-The code line highlights are in the format `videoStartTime-videoEndTime=(codeLinesRange)`. 
+The code line highlights are in the format `videoStartTime-videoEndTime=(codeLinesRange)`.
 The start and the end timestamps are in the `H:M:S` format. Hours are optional (`M:S`).
 
 > The highlight range format is the same as in the [Docusaurus code blocks]( https://docusaurus.io/docs/markdown-features/code-blocks#highlighting-with-metadata-string), just with the `()` parentheses instead of the `{}` parentheses.
